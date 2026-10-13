@@ -1,0 +1,9 @@
+[project]
+name = "study-mujoco"
+version = "0.1.0"
+description = "MuJoCo 공부"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "mujoco>=3.15.0",
+]

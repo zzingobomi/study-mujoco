@@ -1,0 +1,19 @@
+<!--
+  1단계 실험용 진자: 경첩 관절 하나에 막대 하나가 매달려 있다.
+  관절 각도가 0이면 막대는 아래로 똑바로 매달린 상태다.
+-->
+<mujoco model="pendulum">
+  <!-- 시간 간격: mj_step 한 번에 흐르는 시간(초). 0.002가 기본값이지만 눈에 보이게 적었다 -->
+  <option timestep="0.002"/>
+
+  <worldbody>
+    <!-- body: 움직이는 물체 하나. 높이 1m 지점에 매달아 둔다 -->
+    <body name="pole" pos="0 0 1">
+      <!-- joint: 이 물체가 움직일 수 있는 방법. hinge = 한 축(y축)을 중심으로 도는 경첩 -->
+      <joint name="hinge" type="hinge" axis="0 1 0"/>
+      <!-- geom: 물체의 모양. 관절 위치에서 아래로 0.5m, 반지름 2cm인 막대.
+           질량은 모양과 밀도(기본값은 물과 같은 1000kg/m³)로 자동 계산된다 -->
+      <geom type="capsule" fromto="0 0 0  0 0 -0.5" size="0.02"/>
+    </body>
+  </worldbody>
+</mujoco>
